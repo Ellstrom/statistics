@@ -2,18 +2,29 @@ import React from 'react'
 import { Bar } from '@reactchartjs/react-chart.js'
 
 const dynamicData = (data) => {
-    //console.log(data[0]);
 
-    const countNewOrders = data.filter((obj) => obj.order_type === "NEW").length;
-    const countModifyOrders = data.filter((obj) => obj.order_type === "MODIFY").length;
-    const countMobileCrossStackOrders = data.filter((obj) => obj.order_type === "MOBILE_CROSS_STACK").length;
-    const countMoveOrders = data.filter((obj) => obj.order_type === "MOVE").length;
-    const countDisconnectOrders = data.filter((obj) => obj.order_type === "DISCONNECT").length;
+    const ORDER_TYPE_NEW = 'NEW';
+    const ORDER_TYPE_MODIFY = 'MODIFY';
+    const ORDER_TYPE_MOBILE_CROSS_STACK = 'MOBILE_CROSS_STACK';
+    const ORDER_TYPE_MOVE = 'MOVE';
+    const ORDER_TYPE_DISCONNECT = 'DISCONNECT';
+
+    const countNewOrders = data.filter((obj) => ORDER_TYPE_NEW === obj.order_type).length;
+    const countModifyOrders = data.filter((obj) => ORDER_TYPE_MODIFY === obj.order_type).length;
+    const countMobileCrossStackOrders = data.filter((obj) => ORDER_TYPE_MOBILE_CROSS_STACK === obj.order_type).length;
+    const countMoveOrders = data.filter((obj) => ORDER_TYPE_MOVE === obj.order_type).length;
+    const countDisconnectOrders = data.filter((obj) => ORDER_TYPE_DISCONNECT === obj.order_type).length;
 
     const dataSetData = [countNewOrders, countModifyOrders, countMobileCrossStackOrders, countMoveOrders, countDisconnectOrders]
 
     let dataSet = {
-        labels: ['NEW', 'MODIFY', 'MOBILE_CROSS_STACK', 'MOVE', 'DISCONNECT'],
+        labels: [
+            ORDER_TYPE_NEW,
+            ORDER_TYPE_MODIFY,
+            ORDER_TYPE_MOBILE_CROSS_STACK,
+            ORDER_TYPE_MOVE,
+            ORDER_TYPE_DISCONNECT
+        ],
         datasets: [
             {
                 label: '# of Orders',
