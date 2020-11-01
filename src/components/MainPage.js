@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import CSVReader from 'react-csv-reader'
 import VerticalBarChart from "./VerticalBarChart";
 import VerticalBarChartPerDay from "./VerticalBarChartPerDay";
+import PieChart from "./PieChart";
+import PieChartForErrors from "./PieChartForErrors";
+import PieChartForCCOErrors from "./PieChartForCCOErrors";
 
 
 const MainPage = () => {
@@ -24,7 +27,13 @@ const MainPage = () => {
             />
             <VerticalBarChart csvData={csvData}/>
             <br/><br/><br/><br/>
+            <PieChart csvData={csvData}/>
+            <br/><br/><br/><br/>
             <VerticalBarChartPerDay csvData={csvData}/>
+            <br/><br/><br/><br/>
+            <PieChartForErrors csvData={csvData}/>
+            <br/><br/><br/><br/>
+            <PieChartForCCOErrors csvData={csvData}/>
         </div>
     )
 
