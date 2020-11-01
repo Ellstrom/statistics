@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import CSVReader from 'react-csv-reader'
-import VerticalBar from "./VerticalBarChart";
+import VerticalBarChart from "./VerticalBarChart";
+import VerticalBarChartPerDay from "./VerticalBarChartPerDay";
 
 
 const MainPage = () => {
@@ -21,7 +22,9 @@ const MainPage = () => {
                 onFileLoaded={handleData}
                 parserOptions={parseOptions}
             />
-            <VerticalBar csvData={csvData}/>
+            <VerticalBarChart csvData={csvData}/>
+            <br/><br/><br/><br/>
+            <VerticalBarChartPerDay csvData={csvData}/>
         </div>
     )
 
